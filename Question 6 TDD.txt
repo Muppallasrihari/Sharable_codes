@@ -1,0 +1,86 @@
+package com.cg.Lab31;
+import java.util.Scanner;
+public class PositiveString
+{
+	static boolean isPositiveString(String ip)
+	{
+		ip = ip.toUpperCase();
+		int size = ip.length();
+		int []arr = new int[size];
+		char ch;
+		for(int i = 0; i<size; i++)
+		{
+			ch = ip.charAt(i);
+			arr[i] = ch;
+		}
+		for(int i = 0; i<size-1; i++)
+		{
+			if(arr[i]>arr[i+1])
+				return false;
+		}
+		return true;
+		
+	}
+	public static void main(String[] args)
+	{
+		String ip = "";
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter a string:");
+		
+		ip = sc.next();
+		if(isPositiveString(ip))
+		{
+			System.out.println("\""+ip+"\" is a positive String");
+		}
+		else
+		{
+			System.out.println("\""+ip+"\" is a not a positive String");
+		}
+		sc.close();
+	}
+}
+
+
+
+
+
+
+
+TEST CASE
+
+package com.cg.Lab31;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class PositiveStringTest {
+
+	private PositiveString pos;
+	@Before
+	public void setup() 
+	{
+		pos = new PositiveString();
+	}
+	
+	@Test
+	public void test_PositiveString_GivenString_ShouldReurnAsString() 
+	{
+    
+	String str="Bee";
+	boolean result=  pos.isPositiveString(str);
+	  assertEquals(true, result);
+	}
+	@Test
+	public void test_PositiveString_GivenSameString_ShouldReurnAsString() 
+	{
+    
+	String str="bbbccc";
+	boolean result=  pos.isPositiveString(str);
+	  assertEquals(true, result);
+	}
+	
+	  
+}
