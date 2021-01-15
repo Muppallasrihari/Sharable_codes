@@ -11,7 +11,7 @@ public static int getSecondSmallest(Integer[] array, int total){
       List<Integer> list=Arrays.asList(array);  
       Collections.sort(list);  
      int element=list.get(1);  
-     return element;  
+     return element;
 }  
 
 }
